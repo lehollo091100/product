@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>BASIC GO</title>
+    <link rel="stylesheet" type="text-css" href="font-awesome/css/font-awsome.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+    <style type="text/css">
+        html,
+        body,
+        div,
+        span,
+        h1,
+        h2,
+        p,
+        a,
+        img,
+        ul,
+        li,
+        article,
+        header,
+        nav {
+            font-family: "Montserrat";
+            font-weight: bolder;
+        }
+        
+        body {
+            margin: 0;
+        }
+        
+        #head {
+            background: black;
+            opacity: 90%;
+            position: fixed !important;
+            height: 15%;
+            z-index: 1;
+            margin: 0;
+        }
+        
+        .head-logo {
+            float: left;
+            padding-left: 6%;
+            width: 20%;
+        }
+        
+        #head ul {
+            text-align: center;
+            padding-left: 30%;
+            margin-top: 2.7%;
+            margin-right: 50px;
+        }
+        
+        li {
+            list-style-type: none;
+        }
+        
+        #head li {
+            float: left;
+            line-height: 40px;
+            font-size: 17px;
+            width: 110px;
+            height: 40px;
+            position: relative;
+        }
+        
+        a {
+            color: white;
+            text-decoration-line: none;
+        }
+        
+        a:hover {
+            color: rgb(208, 133, 41);
+        }
+        
+        #find {
+            padding-left: 86%;
+        }
+        
+        .cart {
+            margin-top: 40%;
+            margin-left: 91%;
+            padding-top: 15px;
+            padding-bottom: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+            width: 50px;
+            height: 45px;
+            border-radius: 50%;
+            background-image: linear-gradient( to right, rgb(255, 106, 0), rgb(255, 200, 0));
+            text-align: center;
+            z-index: 2;
+            position: fixed;
+        }
+        
+        main {
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+        
+        .link {
+            padding-top: 12%;
+            border-bottom: #2c2b2b 3px solid;
+            padding-bottom: 1%;
+        }
+        
+        .link a {
+            color: #222121;
+            text-decoration-line: none;
+        }
+        
+        .link a:hover {
+            color: rgb(208, 133, 41);
+        }
+        
+        .product {
+            margin-top: 3%;
+            width: 40%;
+            float: left;
+            padding-left: 5%;
+            padding-right: 5%;
+            padding-bottom: 5%;
+        }
+        
+        .pro-menu {
+            float: left;
+        }
+        
+        .element {
+            width: 33%;
+            float: left;
+            text-align: center;
+        }
+        
+        .element:hover {
+            border: orange 3px solid;
+            box-sizing: border-box;
+        }
+        
+        .name {
+            font-size: 70px;
+            background: -webkit-linear-gradient( rgb(255, 255, 186), rgb(255, 103, 1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            border-bottom: 1px dotted #939495;
+        }
+        
+        .color {
+            padding-top: 3%;
+            font-size: 25px;
+            color: #383838;
+            overflow: auto;
+            border-bottom: 1px dotted #939495;
+            padding-bottom: 3%;
+        }
+        
+        .price {
+            color: orange;
+            font-size: 35px;
+            padding-top: 5%;
+            padding-bottom: 5%;
+            border-bottom: 1px dotted #939495;
+        }
+        
+        .white {
+            border: rgb(68, 67, 64) 2px solid;
+            background-color: white;
+            box-sizing: border-box;
+            width: 30px;
+            height: 30px;
+            float: left;
+            margin-right: 30px;
+            margin-left: 30px;
+            border-radius: 3px;
+        }
+        
+        .white:hover {
+            border: orange 3px solid;
+            box-sizing: border-box;
+        }
+        
+        .purple {
+            background-color: purple;
+            width: 30px;
+            height: 30px;
+            float: left;
+            border-radius: 3px;
+        }
+        
+        .purple:hover {
+            border: orange 3px solid;
+            box-sizing: border-box;
+        }
+        
+        .size {
+            padding-top: 3%;
+            font-size: 25px;
+            color: #383838;
+            border-bottom: 1px dotted #939495;
+            overflow: auto;
+            padding-bottom: 3%;
+        }
+        
+        .sizes {
+            border: rgb(133, 131, 127) 1px solid;
+            box-sizing: border-box;
+            font-size: 18px;
+            text-align: center;
+            font-weight: 600;
+            padding-left: 1%;
+            padding-right: 1%;
+            float: left;
+            margin-right: 2%;
+            margin-top: 2%;
+            border-radius: 3px;
+        }
+        
+        .sizes:hover {
+            border: orange 1px solid;
+            background-color: rgb(255, 200, 104);
+        }
+        
+        .amount {
+            padding-top: 5%;
+            font-size: 25px;
+            padding-top: 3%;
+            font-size: 25px;
+            color: #383838;
+        }
+        
+        .quantity {
+            text-align: center;
+            width: 10%;
+            font-size: 20px;
+            font-weight: bold;
+            padding-top: 1%;
+            padding-bottom: 1%;
+            border: rgb(243, 243, 241) 1px solid;
+            border-radius: 3px;
+        }
+        
+        .qty-btn {
+            text-align: center;
+            width: 6%;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 3%;
+            padding: 1%;
+            border: rgb(220, 220, 215) 1px solid;
+            background-color: rgb(220, 220, 215);
+            border-radius: 3px;
+        }
+        
+        .btn {
+            margin-top: 5%;
+            font-weight: normal;
+        }
+        
+        .btn-add {
+            background-color: black;
+            width: 62%;
+            padding-top: 2.5%;
+            padding-bottom: 2.5%;
+            font-size: 24px;
+            text-align: center;
+            border-radius: 7px;
+            color: aliceblue;
+            background-image: linear-gradient( to right, rgb(255, 106, 0), rgb(255, 200, 0));
+            float: left;
+        }
+        
+        .btn-add:hover {
+            background-image: linear-gradient( to right, rgb(255, 200, 0), rgb(255, 106, 0));
+        }
+        
+        .btn-add a:hover {
+            color: aliceblue;
+        }
+        
+        footer {
+            background-color: #171717;
+            color: white;
+            overflow: auto;
+            padding-bottom: 2%;
+            width: 100%;
+        }
+        
+        .footer-logo {
+            float: left;
+            width: 30%;
+            text-align: center;
+            padding-top: 1%;
+        }
+        
+        .map {
+            background-image: linear-gradient( to right, rgb(255, 106, 0), rgb(255, 200, 0));
+            margin-left: 21%;
+            margin-right: 21%;
+            margin-top: 3%;
+            padding-top: 2%;
+            padding-bottom: 2%;
+            font-size: 20px;
+        }
+        
+        .map a:hover {
+            color: rgb(175, 233, 245);
+        }
+        
+        .footer-info {
+            width: 69%;
+            float: left;
+        }
+        
+        .footer-col {
+            padding-top: 3%;
+            width: 30%;
+            float: left;
+            font-size: 17px;
+        }
+        
+        .col-title {
+            padding-bottom: 10px;
+        }
+        
+        .footer-col ul {
+            font-size: 12px;
+            padding-left: 0%;
+        }
+        
+        .footer-col li {
+            padding-bottom: 10px;
+        }
+        
+        .footer-bot {
+            padding-top: 2%;
+            width: 45%;
+            float: left;
+        }
+        
+        .footer-bot ul {
+            font-size: 12px;
+            padding-left: 0%;
+        }
+        
+        .footer-social li {
+            float: left;
+            padding-right: 5%;
+            padding-top: 5px;
+            width: 12%;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="head">
+        <div class="head-logo">
+            <a href="index.html">
+                <img src="image/LOGO1-01.png" alt="QQ Studio" width="100%" />
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="">SẢN PHẨM</a></li>
+                <li><a href="">NAM</a></li>
+                <li><a href="">NỮ</a></li>
+                <li><a href="">SALE OFF</a></li>
+                <li><a href="">TƯ VẤN</a></li>
+                <li><a href="">SPECIAL</a></li>
+            </ul>
+            <div id="find">
+                <img src="image/find-01.png" width="50px" />
+            </div>
+        </nav>
+    </header>
+
+    <div class="cart"><img src="image/cart3.svg" width="80%" /></div>
+    <main>
+        <nav class="link">
+            <span><a href="index.html">TRANG CHỦ</a> »
+          <span style="color: #222121">SẢN PHẨM</span> »
+            <span style="color: #222121">BASIC GO</span></span>
+        </nav>
+        <div class="product">
+            <img src="image/khởi nghiệp-04.png" width="100%" id="img" />
+            <div class="pro-menu">
+                <div class="element">
+                    <img src="image/khởi nghiệp-04.png" width="80%" onmousemove="change(1)" id="img1" />
+                </div>
+                <div class="element">
+                    <img src="image/khởi nghiệp-03.png" width="80%" onmousemove="change(2)" id="img2" />
+                </div>
+                <div class="element">
+                    <img src="image/cấu trúc giày-01.png" width="80%" onmousemove="change(3)" id="img3" />
+                </div>
+            </div>
+        </div>
+        <div class="product">
+            <div class="name">BASIC GO</div>
+            <div class="price">650.000 VND</div>
+            <div class="color">
+                <div style="float: left; font-weight: lighter">Màu Sắc:</div>
+                <div class="white"></div>
+                <div class="purple"></div>
+            </div>
+            <div class="size">
+                <div style="font-weight: lighter">Size:</div>
+                <div class="sizes">34</div>
+                <div class="sizes">35</div>
+                <div class="sizes">36</div>
+                <div class="sizes">37</div>
+                <div class="sizes">38</div>
+                <div class="sizes">39</div>
+                <div class="sizes">40</div>
+                <div class="sizes">41</div>
+                <div class="sizes">42</div>
+                <div class="sizes">43</div>
+                <div class="sizes">44</div>
+                <div class="sizes">45</div>
+                <div class="sizes">46</div>
+                <div class="sizes">47</div>
+            </div>
+            <div class="amount">
+                <div style="font-weight: lighter">Số lượng:</div>
+                <input type="button" value="-" onclick="minusQuantity()" class="qty-btn" />
+                <input type="text" id="quantity" name="quantity" value="1" min="1" class="quantity" />
+                <input type="button" value="+" onclick="plusQuantity()" class="qty-btn" />
+            </div>
+            <div class="btn">
+                <div class="btn-add"><a href="">THÊM VÀO GIỎ HÀNG</a></div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-logo">
+            <img src="image/LOGO2-02.png" width="100%" />
+            <div class="map">
+                <a href="https://www.google.com/maps/place/273+An+D.+V%C6%B0%C6%A1ng,+Ph%C6%B0%E1%BB%9Dng+3,+Qu%E1%BA%ADn+5,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam/@10.7599334,106.6800771,17z/data=!3m1!4b1!4m5!3m4!1s0x31752f1c81c64183:0xd3109d7a7a8f753c!8m2!3d10.7599334!4d106.6822658?hl=vi"
+                    target="“_blank”">TÌM NHÀ LẠC</a
+          >
+        </div>
+      </div>
+      <div class="footer-info">
+        <div style="overflow: auto">
+          <div class="footer-col">
+            <div class="col-title">SẢN PHẨM</div>
+            <ul class="footer-menu">
+              <li>
+                <a href="">NAM</a>
+                </li>
+                <li>
+                    <a href="">NỮ</a>
+                </li>
+                <li>
+                    <a href="">SPECIAL</a>
+                </li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="col-title">VỀ NHÀ HẠC</div>
+                <ul class="footer-menu">
+                    <li>
+                        <a href="">TUYỂN DỤNG</a>
+                    </li>
+                    <li>
+                        <a href="">VỀ CAVIGO</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="col-title">LIÊN HỆ</div>
+                <ul class="footer-menu">
+                    <li>
+                        <a href="">EMAIL</a>
+                    </li>
+                    <li>
+                        <a href="">HOTLINE</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bot">
+            <div class="col-title">MẠNG XÃ HỘI</div>
+            <ul class="footer-social">
+                <li>
+                    <img src="image/f-01.png" width="100%" />
+                </li>
+                <li>
+                    <img src="image/i-01.png" width="100%" />
+                </li>
+                <li>
+                    <img src="image/t-01.png" width="100%" />
+                </li>
+                <li>
+                    <img src="image/y-01.png" width="100%" />
+                </li>
+            </ul>
+        </div>
+        <div class="footer-bot">
+            <a href="">
+                <img src="image/LOGO1-02.png" width="100%" style="padding-top: 20px" />
+            </a>
+        </div>
+        </div>
+    </footer>
+</body>
+<script>
+    function minusQuantity() {
+        var x = document.getElementById("quantity");
+        if (x.value > 1) x.value = x.value - 1;
+    }
+
+    function plusQuantity() {
+        var x = document.getElementById("quantity");
+        x.value = parseInt(x.value) + 1;
+    }
+
+    function change(e) {
+        document.getElementById("img").src = document.getElementById(
+            "img" + e
+        ).src;
+    }
+</script>
+
+</html>
